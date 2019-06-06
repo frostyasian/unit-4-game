@@ -1,10 +1,13 @@
+var goalNumber;
 //generate number between 19-120
-var goalNumber = Math.floor(Math.random() * 120) + 19;
+function restart() {
+  goalNumber = Math.floor(Math.random() * 120) + 19;
 
-//print the random goal number
-$("#goal-number").text(goalNumber);
-
-//score counter
+  //print the random goal number
+  $("#goal-number").text(goalNumber);
+  $("#counter-score").text(counter);
+}
+//score counter - total
 var counter = 0;
 
 //crystals image
@@ -49,6 +52,10 @@ $(".crystal-image").on("click", function() {
     $("#win-lose").html("<h2>Winner!</h2>");
     $("#wins").text(wins);
     counter = 0;
+    setTimeout(function() {
+      $("#win-lose").html("");
+      restart();
+    }, 3000);
   }
 
   if (counter >= goalNumber) {
@@ -56,5 +63,10 @@ $(".crystal-image").on("click", function() {
     $("#win-lose").html("<h2>You Lose! </h2>");
     $("#losses").text(losses);
     counter = 0;
+    setTimeout(function() {
+      $("#win-lose").html("");
+      restart();
+    }, 3000);
   }
 });
+restart();
