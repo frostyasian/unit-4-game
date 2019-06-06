@@ -4,10 +4,10 @@ var goalNumber = Math.floor(Math.random() * 120) + 19;
 //print the random goal number
 $("#goal-number").text(goalNumber);
 
-//score
+//score counter
 var counter = 0;
 
-//crystals
+//crystals image
 var imagesArr = [
   "assets/images/blue.png",
   "assets/images/orange.png",
@@ -26,12 +26,11 @@ var wins = 0;
 var losses = 0;
 
 //loop
-
 for (var i = 0; i < numberOptions.length; i++) {
   //linking crystal image to random number
   var imageCrystal = $("<img>");
-  imageCrystal.addClass("crystal-image"); //assigning a class
-  imageCrystal.attr("src", imagesArr[i]);
+  imageCrystal.addClass("crystal-image"); //<===== assigning a class
+  imageCrystal.attr("src", imagesArr[i]); //<=== giving attribute to crystal
   imageCrystal.attr("data-crystalValue", numberOptions[i]);
   $("#crystals").append(imageCrystal);
 }
